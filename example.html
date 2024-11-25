@@ -8,9 +8,9 @@
 <body>
     <h1>GitHub Pages에서 WebAssembly 불러오기</h1>
     <script>
-        const wasmUrl = 'https://github.com/kangminjii/CrossyRoadWeb/releases/download/v1.0.0/First_project_Build_Web.wasm';
+        const wasmUrl = 'https://github.com/kangminjii/CrossyRoadWeb/releases/download/v1.0.0/First_project_Build_Web.zip';
 
-        fetch(wasmUrl)
+        fetch(wasmUrl, { headers: { 'Content-Encoding': 'zip' } })
             .then(response => response.arrayBuffer())
             .then(bytes => WebAssembly.instantiate(bytes))
             .then(instance => {
